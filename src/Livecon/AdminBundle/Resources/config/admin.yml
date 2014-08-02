@@ -1,0 +1,11 @@
+services:
+    sonata.admin.event:
+        class: Livecon\AdminBundle\Admin\EventAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "EventBundle", label: "Event" }
+        arguments:
+            - ~
+            - fibe\EventBundle\Entity\Event
+            - ~
+        calls:
+            - [ setTranslationDomain, [EventBundle]]

@@ -23,3 +23,6 @@ composer.lock
 
 # gedit temp file
 *~
+
+#Livecon Bundle ignore ln for Admin
+src/fibe
