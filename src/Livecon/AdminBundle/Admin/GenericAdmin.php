@@ -15,7 +15,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class EventAdmin extends AdminLiveconInherit
+class GenericAdmin extends AdminLiveconInherit
 {
   /**
    * Return the name of the entity
@@ -24,16 +24,14 @@ class EventAdmin extends AdminLiveconInherit
    */
   function getEntityName()
   {
-    return EntityUtils::ENTITY_EVENT;
+    return $this->getClass();
   }
 
   /**
    * Set the fields to exclude (on create and update)
-   *
-   * @param mixed $excluded
    */
-  function setExcluded($excluded)
+  function setExcluded()
   {
-    $this->excluded = array('id', 'mainEvent');
+    $this->excluded = array('id', 'mainEvent', 'person');
   }
 }

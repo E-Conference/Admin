@@ -29,15 +29,17 @@ abstract class AdminLiveconInherit extends Admin {
    */
   protected function getExcluded()
   {
+    if ($this->excluded == null)
+    {
+      $this->setExcluded();
+    }
     return $this->excluded;
   }
 
   /**
    * Set the fields to exclude (on create and update)
-   *
-   * @param mixed $excluded
    */
-  abstract function setExcluded($excluded);
+  abstract function setExcluded();
 
   // Fields to be shown on create/edit forms
   protected function configureFormFields(FormMapper $formMapper)
@@ -72,16 +74,6 @@ abstract class AdminLiveconInherit extends Admin {
   }
 
   /**
-   * @param array $other
-   *
-   * @return array
-   */
-  protected function getExcludedFields(array $other = array())
-  {
-    return array_merge(array('mainEvent', 'id'), $other);
-  }
-
-  /**
    * Return all fields (with excluded)
    *
    * @param bool $withExcluded with or without excluded fields
@@ -90,7 +82,7 @@ abstract class AdminLiveconInherit extends Admin {
    */
   protected function getAllFields($withExcluded = true)
   {
-    return EntityUtils::getAllVarsFromEntity($this->getEntityName(), ($withExcluded) ? $this->getExcludedFields() : array());
+    return EntityUtils::getAllVarsFromEntity($this->getEntityName(), ($withExcluded) ? $this->getExcluded() : array());
   }
 
   /**

@@ -1,6 +1,6 @@
 services:
     sonata.admin.event:
-        class: Livecon\AdminBundle\Admin\EventAdmin
+        class: Livecon\AdminBundle\Admin\GenericAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "EventBundle", label: "Event" }
         arguments:
@@ -10,7 +10,7 @@ services:
         calls:
             - [ setTranslationDomain, [EventBundle]]
     sonata.admin.location:
-        class: Livecon\AdminBundle\Admin\LocationAdmin
+        class: Livecon\AdminBundle\Admin\GenericAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "ContentBundle", label: "Location" }
         arguments:
@@ -19,3 +19,16 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [ContentBundle]]
+    sonata.admin.Role:
+        class: Livecon\AdminBundle\Admin\GenericAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "ContentBundle", label: "Role" }
+        arguments:
+            - ~
+            - fibe\ContentBundle\Entity\Role
+            - ~
+        calls:
+            - [ setTranslationDomain, [ContentBundle]]
+
+
+
