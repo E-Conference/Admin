@@ -2,8 +2,8 @@
 echo "Init script for LiveCon Admin is strating...";
 echo "Enter the path of the fibe directory in Livecon repository (for the symbolik link) :";
 
-#read fibeDir;
-#ln -s ${fibeDir} ./src/test;
+read fibeDir;
+ln -s ${fibeDir} ./src/test;
 
 echo "Configuration of the parameters.yml.";
 echo "database_host (ex : 127.0.0.1):";
