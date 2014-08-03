@@ -54,10 +54,11 @@ abstract class AdminLiveconInherit extends Admin {
   // Fields to be shown on filter forms
   protected function configureDatagridFilters(DatagridMapper $datagridMapper)
   {
-    $datagridMapper
-      ->add('id')
-      ->add('label')
-    ;
+    $datagridMapper->add('id');
+    if (in_array('label', $this->getAllFields()))
+    {
+      $datagridMapper->add('label');
+    }
   }
 
   // Fields to be shown on lists

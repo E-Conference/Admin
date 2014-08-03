@@ -14,25 +14,18 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
-class GenericAdmin extends AdminLiveconInherit
+class VEventAdmin extends GenericAdmin
 {
   /**
-   * Return the name of the entity
+   * For VEvent, we cannot instanciate a new VEvent
+   * (But we can see and edit his fields)
    *
-   * @return mixed
+   * @param RouteCollection $collection
    */
-  function getEntityName()
+  protected function configureRoutes(RouteCollection $collection)
   {
-    return $this->getClass();
-  }
-
-  /**
-   * Set the fields to exclude (on create and update)
-   */
-  function setExcluded()
-  {
-    //@TODO : faire le lien avec securityBundle + typage logo
-    $this->excluded = array('id', 'mainEvent', 'person', 'logo');
+    $collection->clearExcept(array('list', 'edit'));
   }
 }
