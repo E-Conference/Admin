@@ -28,7 +28,7 @@ class AppKernel extends Kernel
       // Livecon Bundles :
       new fibe\EventBundle\fibeEventBundle(),
       new fibe\ContentBundle\fibeContentBundle(),
-      new fibe\CommunityBundle\fibeCommunityBundle(),
+      new fibe\CommunityBundle\fibeCommunityBundle()
     );
 
     if (in_array($this->getEnvironment(), array('dev', 'test')))

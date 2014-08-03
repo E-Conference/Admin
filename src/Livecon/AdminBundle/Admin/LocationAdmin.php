@@ -15,7 +15,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class EventAdmin extends AdminLiveconInherit
+class LocationAdmin extends AdminLiveconInherit
 {
   /**
    * Return the name of the entity
@@ -24,7 +24,7 @@ class EventAdmin extends AdminLiveconInherit
    */
   function getEntityName()
   {
-    return EntityUtils::ENTITY_EVENT;
+    return EntityUtils::ENTITY_LOCATION;
   }
 
   /**
