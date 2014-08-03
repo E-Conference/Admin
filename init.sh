@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Init script for LiveCon Admin is strating...";
-echo "Enter the path of the fibe directory in Livecon repository (for the symbolik link) :";
+echo "Enter the RELATIVE path of the fibe directory in Livecon repository (for the symbolik link) :";
 
 read fibeDir;
 ln -s ../${fibeDir} ./src/fibe;
@@ -39,4 +39,3 @@ echo "";
 echo "don't forget to do the following commands:"
 echo "composer install";
 echo "php app/console assets:install";
-echo "php app/console cache:clear";
